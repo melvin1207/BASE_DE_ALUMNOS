@@ -1,5 +1,7 @@
 const arregloestudiantes = []
 const form = document.querySelector('#Registry');
+const nameal = document.querySelector ('#nameal')
+const lastnameal = document.querySelector ('#lastnameal')
 
 /* Manejador de evento */
 form.addEventListener('submit', (event) => {
@@ -15,12 +17,45 @@ form.addEventListener('submit', (event) => {
         arregloestudiantes.push(student);
         localStorage.setItem("estudiantes", JSON.stringify(arregloestudiantes));
         updateStudentsList();
-        console.log(arregloestudiantes);
+        
     } else {
         alert("Tienes un dato vacío, verificalo");
         event.stopPropagation();
     }
 })
+
+nameal.addEventListener ('click', (event) => {
+    event.preventDefault();
+    arregloestudiantes.sort ((a, b) => {
+        a = a.name;
+        b = b.name;
+        if (a == b) {
+            return 0;
+        }
+        if (a < b) {
+            return -1;
+        }
+        return 1;
+    })
+    updateStudentsList();
+})
+
+lastnameal.addEventListener ('click', (event) => {
+    event.preventDefault();
+    arregloestudiantes.sort ((a, b) => {
+        a = a.lastname;
+        b = b.lastname;
+        if (a == b) {
+            return 0;
+        }
+        if (a < b) {
+            return -1;
+        }
+        return 1;
+    })
+    updateStudentsList();
+})
+
 
 const validateStudent= ({ name = "", lastname = "", age = 0 }) => name !== "" && lastname !== "" && age !== 0; //Regresa un booleano
 
@@ -54,9 +89,3 @@ clases.addEventListener('click', (e) => {
     window.location.href = 'clases.html';
 })
 
-let studentName = document.querySelector('#jediNameFilter')
-jediName.addEventListener('input', () => {
-    let name = document.querySelector('#jediNameFilter').value;
-    
-    console.log(name)
-})

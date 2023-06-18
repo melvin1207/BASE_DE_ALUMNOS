@@ -14,7 +14,7 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="#" id="title">DEVSCHOOL</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon" id="group"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
@@ -28,42 +28,35 @@
     </nav>
 
     <main class="container text-bg-light rounded my-5 p-4">
+        <h3> Ingresa a los nuevos estudiantes porfavor, una vez terminado, ve a la pestaña para asignar clases y grupos</h3>
         <div class="row">
-            <div class="col-6">
+            <div class="col-7">
                 <form id="Registry">
                     <div class="my-3">
                         <label for="NameControl" class="form-label">Nombre</label>
-                        <input name="name" type="text" class="form-control" id="NameControl"
-                            placeholder="Nombre del alumno">
+                        <input name="name" type="text" class="form-control" id="NameControl"placeholder="Nombre del alumno">
                     </div>
                     <div class="my-3">
                         <label for="LastNameControl" class="form-label">Apellidos</label>
-                        <input name="lastName" type="text" class="form-control" id="LastNameControl"
-                            placeholder="Apellidos del alumno">
+                        <input name="lastName" type="text" class="form-control" id="LastNameControl" placeholder="Apellidos del alumno">
                     </div>
                     <div class="my-3">
                         <label for="AgeControl" class="form-label">Edad</label>
-                        <input name="age" type="number" class="form-control" id="AgeControl"
-                            placeholder="Edad del alumno">
+                        <input name="age" type="number" class="form-control" id="AgeControl" placeholder="Edad del alumno">
                     </div>
                     <button type="submit" class="btn btn-primary mt-3" form="Registry">Registrar</button>
                 </form>
             </div>
 
-            <div class="col-6">
-                <h2>Elige tu grupo</h2>
-                <div class="input-group my-3">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">A</a></li>
-                      <li><a class="dropdown-item" href="#">B</a></li>
-                      <li><a class="dropdown-item" href="#">C</a></li>
-                      <li><a class="dropdown-item" href="#">D</a></li>
-                    </ul>
-                    
-                  </div>
+            <div class="col-5">
+                <h4>Ordenar la lista alfabeticamente</h4>
+                <button type="submit" class="btn btn-primary mt-3" id="nameal">Ordenar por nombre</button>
+                <button type="submit" class="btn btn-primary mt-3" id="lastnameal">Ordenar por apellido</button>
             </div>
         </div>
+
+    
+           
 
         <section class="container p-4">
             <h2>Alumnos Registrados</h2>
