@@ -27,10 +27,8 @@
       </div>
     </div>
   </nav>
-
   <main class="container text-bg-light rounded my-5 p-4">
     <h4>A continuación se deberan asignar las calificaciones a los alumnos</h4>
-
     <div class="mb-3">
       <form id="inscripciones">
         <label for="GroupFilter" class="form-label">Busque por grupo</label>
@@ -45,21 +43,21 @@
         <input name="name" type="text" class="form-control" id="Name" placeholder="nombre">
 
         <label id="subject1" class="form-label"> </label>
-        <input name="name" type="text" class="form-control" id="subject1" placeholder="Calificación">
+        <input name="cali1" type="text" class="form-control" id="subject1" placeholder="Calificación">
 
         <label id="subject2" class="form-label"> </label>
-        <input name="name" type="text" class="form-control" id="subject2" placeholder="Calificación">
+        <input name="cali2" type="text" class="form-control" id="subject2" placeholder="Calificación">
 
         <label id="subject3" class="form-label"> </label>
-        <input name="name" type="text" class="form-control" id="subject3" placeholder="Calificación">
+        <input name="cali3" type="text" class="form-control" id="subject3" placeholder="Calificación">
 
         <button type="submit" class="btn btn-primary mt-3" form="inscripciones">Registrar</button>
       </form>
     </div>
-
     <section class="container p-4">
       <h2>Alumnos Registrados</h2>
-      <table class="table table-striped">
+      <div class="table-responsive">
+        <table class="table table-striped">
           <thead>
               <tr>
                   <th>Nombre</th>
@@ -76,9 +74,9 @@
           </thead>
           <tbody id="studentsList">
           </tbody>
-      </table>
-  </section>
+        </table>
+      </div> 
+    </section>
   </main>
-  
 </body>
 </html>

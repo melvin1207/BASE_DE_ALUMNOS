@@ -7,22 +7,24 @@ const namefilter = document.querySelector('#NameFilter');
 const groupfilter = document.querySelector('#GroupFilter');
 const form = document.querySelector('#inscripciones');
 
+
+//actualizar lista visible
 const updateStudentsList= () => {
   const studentsList = document.querySelector('#studentsList');
   studentsList.innerHTML = ''; // Limpiamos el contenido existente
   arregloestudiantes.forEach(student => {
-      const row = `
-      <tr>
-        <td>${student.name}</td>
-        <td>${student.lastname}</td>
-        <td>${student.age}</td>
-        <td>${student.group}</td>
-        <td>${student.subject1}</td>
-        <td>${student.subject2}</td>
-        <td>${student.subject3}</td>
-      </tr>
+    const row = `
+    <tr>
+      <td>${student.name}</td>
+      <td>${student.lastname}</td>
+      <td>${student.age}</td>
+      <td>${student.group}</td>
+      <td>${student.subject1}</td>
+      <td>${student.subject2}</td>
+      <td>${student.subject3}</td>
+    </tr>
     `;
-      studentsList.innerHTML += row;
+  studentsList.innerHTML += row;
   });
 };
 

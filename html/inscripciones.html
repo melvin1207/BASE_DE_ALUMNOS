@@ -27,10 +27,8 @@
       </div>
     </div>
   </nav>
-
   <main class="container text-bg-light rounded my-5 p-4">
     <h4>A continuación se presentan los estudiantes a los que se les deben asignar sus materias, recuerde que solo puede asignar 3 materias por alumno</h4>
-
     <div class="mb-3">
       <form id="inscripciones">
         <label for="NameFilter" class="form-label">Busque por nombre</label>
@@ -43,7 +41,6 @@
           <option>B</option>
           <option>C</option>
         </select>
-
         <label for="Subjects" class="form-label">Materias a inscribir</label>
         <select id="Subjects" class="form-select" name="subjects" >
           <option selected>Choose...</option>
@@ -54,11 +51,11 @@
         <button type="submit" class="btn btn-primary mt-3" form="inscripciones">Registrar</button>
       </form>
     </div>
-
     <section class="container p-4">
       <h2>Alumnos Registrados</h2>
-      <table class="table table-striped">
-          <thead>
+      <div class="table-responsive">
+        <table class="table table-striped table-active">
+          <thead class="table-light">
               <tr>
                   <th>Nombre</th>
                   <th>Apellidos</th>
@@ -71,9 +68,9 @@
           </thead>
           <tbody id="studentsList">
           </tbody>
-      </table>
-  </section>
+        </table>
+      </div>
+    </section>
   </main>
-  
 </body>
 </html>

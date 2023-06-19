@@ -8,40 +8,44 @@ const calificaciones = document.querySelector('#Calificaciones');
 const finales = document.querySelector('#Finales');
 const inscripciones = document.querySelector('#Inscripciones');
 
+
+//actualizar la lista visible
 const updateStudentsList= () => {
-    const studentsList = document.querySelector('#studentsList');
-    studentsList.innerHTML = ''; // Limpiamos el contenido existente
-    arregloestudiantes.forEach(student => {
-        const row = `
-        <tr>
-          <td>${student.name}</td>
-          <td>${student.lastname}</td>
-          <td>${student.age}</td>
-          <td>${student.group}</td>
-        </tr>
-      `;
-        studentsList.innerHTML += row;
-    });
+  const studentsList = document.querySelector('#studentsList');
+  studentsList.innerHTML = ''; // Limpiamos el contenido existente
+  arregloestudiantes.forEach(student => {
+    const row = `
+    <tr>
+      <td>${student.name}</td>
+      <td>${student.lastname}</td>
+      <td>${student.age}</td>
+      <td>${student.group}</td>
+    </tr>
+    `;
+    studentsList.innerHTML += row;
+  });
 };
 
+//limpiar la lista visibles
 const clearStudentsList= () => {
   const studentsList = document.querySelector('#studentsList');
   studentsList.innerHTML = ''; // Limpiamos el contenido existente
   arregloestudiantes.forEach(student => {
-      const row = `
-      <tr class="filtro">
-        <td>${student.name}</td>
-        <td>${student.lastname}</td>
-        <td>${student.age}</td>
-        <td>${student.group}</td>
-      </tr>
+    const row = `
+    <tr class="filtro">
+      <td>${student.name}</td>
+      <td>${student.lastname}</td>
+      <td>${student.age}</td>
+      <td>${student.group}</td>
+    </tr>
     `;
-      studentsList.innerHTML += row;
+    studentsList.innerHTML += row;
   });
 };
 
 updateStudentsList();
 
+//filtro por nombre
 namefilter.addEventListener('keyup', (e) => {
   let name = namefilter.value.toLowerCase();
   clearStudentsList();
@@ -55,55 +59,53 @@ namefilter.addEventListener('keyup', (e) => {
           <td>${student.group}</td>
         </tr>
       `;
-        studentsList.innerHTML += row;
-
+      studentsList.innerHTML += row;
     } else {
       const row = `
-        <tr class="filtro">
-          <td>${student.name}</td>
-          <td>${student.lastname}</td>
-          <td>${student.age}</td>
-          <td>${student.group}</td>
-        </tr>
+      <tr class="filtro">
+        <td>${student.name}</td>
+        <td>${student.lastname}</td>
+        <td>${student.age}</td>
+        <td>${student.group}</td>
+      </tr>
       `;
-        studentsList.innerHTML += row;
+      studentsList.innerHTML += row;
     }
   })
 })
 
+//filtro por apellido
 lastnamefilter.addEventListener('keyup', (e) => {
   let lastname = lastnamefilter.value.toLowerCase();
   clearStudentsList();
   arregloestudiantes.forEach(student => {
-    if(student.lastname.toLowerCase().includes(lastname)){
-      const row = `
-        <tr>
-          <td>${student.name}</td>
-          <td>${student.lastname}</td>
-          <td>${student.age}</td>
-          <td>${student.group}</td>
-        </tr>
+  if(student.lastname.toLowerCase().includes(lastname)){
+    const row = `
+      <tr>
+        <td>${student.name}</td>
+        <td>${student.lastname}</td>
+        <td>${student.age}</td>
+        <td>${student.group}</td>
+      </tr>
       `;
-        studentsList.innerHTML += row;
-
-    } else {
-      const row = `
-        <tr class="filtro">
-          <td>${student.name}</td>
-          <td>${student.lastname}</td>
-          <td>${student.age}</td>
-          <td>${student.group}</td>
-        </tr>
+      studentsList.innerHTML += row;
+  } else {
+    const row = `
+      <tr class="filtro">
+        <td>${student.name}</td>
+        <td>${student.lastname}</td>
+        <td>${student.age}</td>
+        <td>${student.group}</td>
+      </tr>
       `;
-        studentsList.innerHTML += row;
-    }
+    studentsList.innerHTML += row;
+  }
   })
 })
 
+//formulario de los datos
 form.addEventListener('submit', (event) => {
-  event.preventDefault(); // Evita que se envíe el formulario automáticamente
-  /* Almacenando la información del formulario, en un objeto de javascript */
-  
+  event.preventDefault(); 
   const student = {
     name: form.name.value,
     lastname : form.lastname.value,
@@ -119,14 +121,15 @@ form.addEventListener('submit', (event) => {
   })
 })
 
+//BOTONES DE LA BARRA DE NEVEGACIÓN
 home.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.href = 'index.html';
+  e.preventDefault();
+  window.location.href = 'index.html';
 })
 
 clases.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.href = 'clases.html';
+  e.preventDefault();
+  window.location.href = 'clases.html';
 })
 
 calificaciones.addEventListener('click', (e) => {

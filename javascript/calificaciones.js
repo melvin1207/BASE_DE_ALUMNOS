@@ -1,4 +1,5 @@
-const arregloestudiantes = JSON.parse(localStorage.getItem("estudiantes"));const home = document.querySelector('#Home');
+const arregloestudiantes = JSON.parse(localStorage.getItem("estudiantes"));
+const home = document.querySelector('#Home');
 const clases = document.querySelector('#AsignarClases');
 const calificaciones = document.querySelector('#Calificaciones');
 const finales = document.querySelector('#Finales');
