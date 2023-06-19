@@ -141,13 +141,12 @@ form.addEventListener('submit', (event) => {
     } else if (student.name == estudiante.name && "C" == estudiante.group){
       estudiante.subject1 = "Matematicas"
       estudiante.subject2 = "Fisica"
-      estudiante.subject3 = "HIstoria"
+      estudiante.subject3 = "Historia"
       updateStudentsList();
       localStorage.setItem("estudiantes", JSON.stringify(arregloestudiantes));
     }
   })
 })
-
 
 home.addEventListener('click', (e) => {
     e.preventDefault();
