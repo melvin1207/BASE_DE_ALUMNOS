@@ -19,7 +19,8 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="#" id="Home">Home</a>
-              <a class="nav-link active" aria-current="page" href="#" id="AsignarClases">Asignar clases</a>
+              <a class="nav-link active" aria-current="page" href="#" id="AsignarClases">Asignar grupos</a>
+              <a class="nav-link active" aria-current="page" href="#" id="Inscripciones">Inscripciones</a>
               <a class="nav-link active" aria-current="page" href="#" id="Calificaciones">Calificaciones</a>
               <a class="nav-link active" aria-current="page" href="#" id="Finales">Finales</a>
             </div>
@@ -28,7 +29,27 @@
     </nav>
 
     <main class="container text-bg-light rounded my-5 p-4">
-        <h4>A continuación se presentan los estudiantes que se registraron, en el siguiente apartado podras asignar sus clases y el grupo al que se inscribieron</h4>
+        <h4>A continuación se presentan los estudiantes que se registraron, en el siguiente apartado el grupo al que se inscribiran</h4>
+
+        <div class="mb-3">
+          <form id="asign-group">
+            <label for="NameFilter" class="form-label">Busque por nombre y a continuación complete los datos faltantes</label>
+            <input name="name" type="text" class="form-control" id="NameFilter" placeholder="nombre">
+
+
+            <h6>Elija al grupo, al alumno y de clic en aceptar</h6>
+            <select id="inputState" class="form-select" name="group">
+              <option selected>Choose...</option>
+              <option>A</option>
+              <option>B</option>
+              <option>C</option>
+            </select>
+            <button type="submit" class="btn btn-primary mt-3" form="asign-group">Registrar</button>
+          </form>
+          
+        </div>
+        
+
         <section class="container p-4">
             <h2>Alumnos Registrados</h2>
             <table class="table table-striped">
@@ -37,6 +58,7 @@
                         <th>Nombre</th>
                         <th>Apellidos</th>
                         <th>Edad</th>
+                        <th>Grupo</th>
                     </tr>
                 </thead>
                 <tbody id="studentsList">

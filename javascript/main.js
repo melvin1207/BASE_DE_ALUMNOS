@@ -1,12 +1,16 @@
-const arregloestudiantes = []
+const arregloestudiantes = JSON.parse(localStorage.getItem("estudiantes"));
 const form = document.querySelector('#Registry');
 const nameal = document.querySelector ('#nameal')
 const lastnameal = document.querySelector ('#lastnameal')
+const home = document.querySelector('#Home');
+const clases = document.querySelector('#AsignarClases');
+const calificaciones = document.querySelector('#Calificaciones');
+const finales = document.querySelector('#Finales');
+const inscripciones = document.querySelector('#Inscripciones');
 
-/* Manejador de evento */
+// Boton del formulario
 form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Evita que se envíe el formulario automáticamente
-    /* Almacenando la información del formulario, en un objeto de javascript */
+    event.preventDefault(); 
     const student = {
         name: form.name.value,
         lastname: form.lastName.value,
@@ -24,6 +28,7 @@ form.addEventListener('submit', (event) => {
     }
 })
 
+//Filtro por nombre
 nameal.addEventListener ('click', (event) => {
     event.preventDefault();
     arregloestudiantes.sort ((a, b) => {
@@ -40,6 +45,7 @@ nameal.addEventListener ('click', (event) => {
     updateStudentsList();
 })
 
+//Filtro por apellido 
 lastnameal.addEventListener ('click', (event) => {
     event.preventDefault();
     arregloestudiantes.sort ((a, b) => {
@@ -56,9 +62,10 @@ lastnameal.addEventListener ('click', (event) => {
     updateStudentsList();
 })
 
-
+//validar un estudiante
 const validateStudent= ({ name = "", lastname = "", age = 0 }) => name !== "" && lastname !== "" && age !== 0; //Regresa un booleano
 
+//Actualizar la vista visible de estudiantes
 const updateStudentsList= () => {
     const studentsList = document.querySelector('#studentsList');
     studentsList.innerHTML = ''; // Limpiamos el contenido existente
@@ -74,11 +81,9 @@ const updateStudentsList= () => {
     });
 };
 
-const home = document.querySelector('#Home');
-const clases = document.querySelector('#AsignarClases');
-const calificaciones = document.querySelector('#Calificaciones');
-const finales = document.querySelector('#Finales');
 
+
+//Botones para el cambio de paginas
 home.addEventListener('click', (e) => {
     e.preventDefault();
     window.location.href = 'index.html';
@@ -89,3 +94,17 @@ clases.addEventListener('click', (e) => {
     window.location.href = 'clases.html';
 })
 
+calificaciones.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.location.href = 'calificaciones.html';
+})
+
+finales.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.location.href = 'finales.html';
+})
+
+inscripciones.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.location.href = 'inscripciones.html';
+})
