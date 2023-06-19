@@ -13,7 +13,7 @@ const materia2 = document.querySelector('#subject2');
 const materia3 = document.querySelector('#subject3');
 
 
-
+//actualizar lista visibles
 const updateStudentsList= () => {
   const studentsList = document.querySelector('#studentsList');
   studentsList.innerHTML = ''; // Limpiamos el contenido existente
@@ -36,6 +36,7 @@ const updateStudentsList= () => {
   });
 };
 
+//limpiar lista visible
 const clearStudentsList= () => {
 const studentsList = document.querySelector('#studentsList');
 studentsList.innerHTML = ''; // Limpiamos el contenido existente
@@ -60,7 +61,7 @@ arregloestudiantes.forEach(student => {
 
 updateStudentsList();
 
-
+//filtro de grupo
 groupfilter.addEventListener('change', (e) => {
   let group = groupfilter.value.toLowerCase();
 
@@ -105,10 +106,9 @@ groupfilter.addEventListener('change', (e) => {
   })
 })
 
+//adquision de datos del form
 form.addEventListener('submit', (event) => {
-  event.preventDefault(); // Evita que se envíe el formulario automáticamente
-  /* Almacenando la información del formulario, en un objeto de javascript */
-  
+  event.preventDefault(); 
   const student = {
     name: form.name.value,
     group: form.group.value,
@@ -116,7 +116,6 @@ form.addEventListener('submit', (event) => {
     cali2: form.cali2.value,
     cali3: form.cali3.value
   };
-
   arregloestudiantes.forEach(estudiante => {
     if (student.name == estudiante.name && student.group == estudiante.group){
       estudiante.cali1 = student.cali1
@@ -128,6 +127,7 @@ form.addEventListener('submit', (event) => {
   })
 })
 
+//Botones de la barra de navegación
 home.addEventListener('click', (e) => {
   e.preventDefault();
   window.location.href = 'index.html';
