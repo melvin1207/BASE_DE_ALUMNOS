@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <script defer src="/javascript/finales.js"></script>
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark border-bottom-dark" data-bs-theme = "dark">
     <div class="container-fluid">
@@ -22,62 +23,66 @@
           <a class="nav-link active" aria-current="page" href="#" id="AsignarClases">Asignar grupos</a>
           <a class="nav-link active" aria-current="page" href="#" id="Inscripciones">Inscripciones</a>
           <a class="nav-link active" aria-current="page" href="#" id="Calificaciones">Calificaciones</a>
-          <a class="nav-link active" aria-current="page" href="#" id="Finales">Finales</a>
+          <a class="nav-link active" aria-current="page" href="#" id="Finales">Promedios</a>
         </div>
       </div>
     </div>
   </nav>
 
   <main class="container text-bg-light rounded my-5 p-4">
-    <h4>En este apartado usted podra ver los diferentes puntos de las calificaciones</h4>
+    <h4>En este apartado usted podra ver los promedios de grupos y estudiantes</h4>
 
-    <div class="mb-3">
-      <form id="inscripciones">
-        <label for="GroupFilter" class="form-label">Busque por grupo</label>
-        <select id="GroupFilter" class="form-select" name="group" >
-          <option selected>Choose...</option>
-          <option>A</option>
-          <option>B</option>
-          <option>C</option>
-        </select>
+    <div class="row m-3">
+      <div class="col-6">
+        <form id="inscripciones">
+          <label for="GroupFilter" class="form-label">Busque por grupo</label>
+          <select id="GroupFilter" class="form-select" name="group" >
+            <option selected>Choose...</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>Todos</option>
+          </select>
+        </form>
+      </div>
 
-        <label for="Name" class="form-label">Introduzca el nombre del alumno</label>
-        <input name="name" type="text" class="form-control" id="Name" placeholder="nombre">
-
-        <label id="subject1" class="form-label"> </label>
-        <input name="cali1" type="text" class="form-control" id="subject1" placeholder="Calificación">
-
-        <label id="subject2" class="form-label"> </label>
-        <input name="cali2" type="text" class="form-control" id="subject2" placeholder="Calificación">
-
-        <label id="subject3" class="form-label"> </label>
-        <input name="cali3" type="text" class="form-control" id="subject3" placeholder="Calificación">
-
-        <button type="submit" class="btn btn-primary mt-3" form="inscripciones">Registrar</button>
-      </form>
+      <div class="col-6">
+        <h5>Promedio del grupo</h5>
+        <h5 id="groupprom"></h5>
+        <button type="submit" class="btn btn-primary mt-3" id="nameal">Orden Alfabetico por nombre</button>
+        <button type="submit" class="btn btn-primary mt-3" id="lastnameal">Orden Alfabetico por apellido</button>
+        <button type="submit" class="btn btn-primary mt-3" id="ascen">Orden Ascendente</button>
+        <button type="submit" class="btn btn-primary mt-3" id="descen">Orden Descendente</button>
+      </div>
+      
     </div>
 
     <section class="container p-4">
-      <h2>Alumnos Registrados</h2>
-      <table class="table table-striped">
+      <h2>Alumnos</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
           <thead>
-              <tr>
-                  <th>Nombre</th>
-                  <th>Apellidos</th>
-                  <th>Edad</th>
-                  <th>Grupo</th>
-                  <th>Materia 1</th>
-                  <th>Calificacion</th>
-                  <th>Materia 2</th>
-                  <th>Calificacion</th>
-                  <th>Materia 3</th>
-                  <th>Calificacion</th>
-              </tr>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Edad</th>
+              <th>Grupo</th>
+              <th>Materia 1</th>
+              <th>Calificación</th>
+              <th>Materia 2</th>
+              <th>Calificación</th>
+              <th>Materia 3</th>
+              <th>Calificación</th>
+              <th>Promedio</th>
+            </tr>
           </thead>
           <tbody id="studentsList">
           </tbody>
-      </table>
-  </section>
+        </table>
+      </div>
+        
+    </section>
+    
   </main>
   
 </body>
