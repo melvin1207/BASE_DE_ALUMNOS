@@ -9,7 +9,6 @@ const calificaciones = document.querySelector('#Calificaciones');
 const finales = document.querySelector('#Finales');
 const inscripciones = document.querySelector('#Inscripciones');
 
-
 // Boton del formulario
 form.addEventListener('submit', (event) => {
   event.preventDefault(); 
@@ -44,49 +43,6 @@ const clearStudentsList= () => {
   });
 };
 
-//borrar la lista no visible
-newRegistry.addEventListener('click', (event) => {
-  arregloestudiantes = [];
-  clearStudentsList();
-})
-
-//Filtro por nombre
-nameal.addEventListener ('click', (event) => {
-  event.preventDefault();
-  arregloestudiantes.sort ((a, b) => {
-    a = a.name;
-    b = b.name;
-    if (a == b) {
-      return 0;
-    }
-    if (a < b) {
-      return -1;
-    }
-      return 1;
-  })
-  updateStudentsList();
-})
-
-//Filtro por apellido 
-lastnameal.addEventListener ('click', (event) => {
-  event.preventDefault();
-  arregloestudiantes.sort ((a, b) => {
-    a = a.lastname;
-    b = b.lastname;
-    if (a == b) {
-      return 0;
-    }
-    if (a < b) {
-      return -1;
-    }
-      return 1;
-  })
-  updateStudentsList();
-})
-
-//validar un estudiante
-const validateStudent= ({ name = "", lastname = "", age = 0 }) => name !== "" && lastname !== "" && age !== 0; //Regresa un booleano
-
 //Actualizar la vista visible de estudiantes
 const updateStudentsList= () => {
   const studentsList = document.querySelector('#studentsList');
@@ -105,6 +61,42 @@ const updateStudentsList= () => {
 
 updateStudentsList();
 
+//borrar la lista no visible
+newRegistry.addEventListener('click', (event) => {
+  arregloestudiantes = [];
+  clearStudentsList();
+})
+
+//Filtro por nombre
+nameal.addEventListener ('click', (event) => {
+  event.preventDefault();
+  const n = arregloestudiantes.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (arregloestudiantes[j].name > arregloestudiantes[j + 1].name) {
+        [arregloestudiantes[j], arregloestudiantes[j + 1]] = [arregloestudiantes[j + 1], arregloestudiantes[j]];
+      }
+    }
+  }
+  updateStudentsList();  
+})
+
+//Filtro por apellido 
+lastnameal.addEventListener ('click', (event) => {
+  event.preventDefault();
+  const n = arregloestudiantes.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      if (arregloestudiantes[j].lastname > arregloestudiantes[j + 1].lastname) {
+        [arregloestudiantes[j], arregloestudiantes[j + 1]] = [arregloestudiantes[j + 1], arregloestudiantes[j]];
+      }
+    }
+  }
+  updateStudentsList();
+})
+
+//validar un estudiante
+const validateStudent= ({ name = "", lastname = "", age = 0 }) => name !== "" && lastname !== "" && age !== 0; //Regresa un booleano
 
 //Botones para el cambio de paginas
 home.addEventListener('click', (e) => {
@@ -131,3 +123,4 @@ inscripciones.addEventListener('click', (e) => {
   e.preventDefault();
   window.location.href = 'inscripciones.html';
 })
+
