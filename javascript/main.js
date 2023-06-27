@@ -9,6 +9,9 @@ const calificaciones = document.querySelector('#Calificaciones');
 const finales = document.querySelector('#Finales');
 const inscripciones = document.querySelector('#Inscripciones');
 
+//validar un estudiante
+const validateStudent= ({ name = "", lastname = "", age = 0 }) => name !== "" && lastname !== "" && age !== 0; //Regresa un booleano
+
 // Boton del formulario
 form.addEventListener('submit', (event) => {
   event.preventDefault(); 
@@ -52,11 +55,25 @@ const updateStudentsList= () => {
       <tr>
         <td>${student.name}</td>
         <td>${student.lastname}</td>
-        <td>${student.age}</td>
+        <td>${student.age}</td> 
+        <td><button type="button" class="btn btn-danger deleteBtn" data-index="index">Eliminar</button></td>
       </tr>
     `;
     studentsList.innerHTML += row;
   });
+
+  const deleteButtons = document.querySelectorAll('.deleteBtn');
+
+  deleteButtons.forEach((button) => {
+      button.addEventListener('click', handleDeletestudent);
+  });
+};
+
+const handleDeletestudent = (event) => {
+  const index = event.target.dataset.index;
+  arregloestudiantes.splice(index, 1);
+  updateStudentsList();
+  localStorage.setItem("estudiantes", JSON.stringify(arregloestudiantes));
 };
 
 updateStudentsList();
@@ -64,6 +81,7 @@ updateStudentsList();
 //borrar la lista no visible
 newRegistry.addEventListener('click', (event) => {
   arregloestudiantes = [];
+  localStorage.setItem("estudiantes", JSON.stringify(arregloestudiantes));
   clearStudentsList();
 })
 
@@ -94,9 +112,6 @@ lastnameal.addEventListener ('click', (event) => {
   }
   updateStudentsList();
 })
-
-//validar un estudiante
-const validateStudent= ({ name = "", lastname = "", age = 0 }) => name !== "" && lastname !== "" && age !== 0; //Regresa un booleano
 
 //Botones para el cambio de paginas
 home.addEventListener('click', (e) => {
